@@ -1,0 +1,2 @@
+//var server_url = 'http://sem4j.org:7474';
+var server_url = 'http://sem4j.org:9001';
