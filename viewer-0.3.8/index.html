@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+<head>
+<title>Sem4J</title>
+
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="../../sem4j.conf.js"></script>
+<script type="text/javascript" src="./js/main.onload.js"></script>
+<script type="text/javascript" src="./js/main.function.js"></script>
+
+<link rel="stylesheet" href="./default.css" type="text/css" />
+<link rel="shortcut icon" href="./image/ico/Embryotic.ico" />
+
+</head>
+<body>
+	<div id="titlebar">
+		<div id="titlebar_title">
+			Sem4j
+		</div>
+		<div id="titlebar_center">
+			<div class="titlebar_menu">
+				<a id="titlebar_search">search</a>
+			</div>
+			<div class="titlebar_menu">
+				<a id="titlebar_cypher">cypher</a>
+			</div>
+		</div>
+		<div id="titlebar_right">
+			<div class="titlebar_menu">
+				<a id="titlebar_about" href="https://github.com/sem4j/sem4j-main/wiki" target="_blank">about</a>
+			</div>
+			<div class="titlebar_menu">
+				<a id="titlebar_log">log</a>
+			</div>
+		</div>
+	</div>
+	<div id="container">
+		<div id="main">
+			<div id="d3svg"></div>
+		</div>
+	</div>
+	<div id="floatWindowSearch" class="floatWindow">
+		<a class="close">close</a>
+		<dl>
+			<dt id="floatTitle">Search</dt>
+			<dd>
+				<div class="menu1_c">
+					<div class="menu2_c">
+						<select id="selectNamespace" />
+							<!-- Replaced by JavaScript -->
+						</select>
+					</div>
+					<div class="menu2_c">
+						<input type="text" size="40" id="searchByConcept" value="*A" />
+						<input type="submit" value="Go" id="submitConcept" />
+					</div>
+				</div>
+				<div class="menu1_c">
+					<div class="menu2_t" id="result_t">
+						<!-- Replaced by JavaScript -->
+					</div>
+					<div class="menu2_c" id="result_c">
+						<!-- Replaced by JavaScript -->
+					</div>
+				</div>
+			</dd>
+		</dl>
+	</div>
+	<div id="floatWindowCypher" class="floatWindow">
+		<a class="close">close</a>
+		<dl>
+			<dt id="floatTitle">Cypher</dt>
+			<dd>
+				<div class="menu1_c">
+					<div class="menu2_c">
+						<textarea cols="50" rows="5" id="textareaCypher" style="font-size:1.0em;">					
+START p=node:`http://ccle.org`('name:*GFR')
+MATCH p-[r1:targets]-d-[r2:affect_to]-c
+WHERE c.cancer_type='SKIN'
+RETURN *
+						</textarea>
+						<input type="submit" value="Go" id="submitCypher" />
+					</div>
+				</div>
+				<div class="menu1_c">
+					<div class="menu2_c">
+						<textarea cols="100" rows="15" id="resultCypher" style="font-size:1.0em;">
+						</textarea>
+					</div>
+				</div>
+			</dd>
+		</dl>
+	</div>
+	<div id="floatWindowProperty" class="floatWindow">
+		<a class="close">close</a>
+		<dl>
+			<dt id="floatTitle">Property</dt>
+			<dd>
+				<div id="property"></div>
+				<div id="propertyNei"></div>
+			</dd>
+		</dl>
+	</div>
+	<div id="floatWindowLog" class="floatWindow">
+		<a class="close">close</a>
+		<dl>
+			<dt id="floatTitle">Log</dt>
+			<dd></dd>
+		</dl>
+	</div>
+</body>
+<script type="text/javascript" src="./js/main.vis.js"></script>
+</html>
