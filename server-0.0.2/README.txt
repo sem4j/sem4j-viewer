@@ -1,5 +1,2 @@
-$ npm install express
-$ npm install request
-$ npm install forever
-
+$ npm install express request forever
 $ ./node_modules/forever/bin/forever start server.js

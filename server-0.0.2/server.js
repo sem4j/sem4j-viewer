@@ -1,10 +1,10 @@
 var request = require('request');
 var express = require('express');
-var app = express();
-var uri_base = 'http://54.249.56.15:7474';
-//var uri_base = 'http://sem4j.org:7474';
+var bodyParser = require('body-parser');
+var uri_base = 'http://localhost:7474';
 
-app.use(express.bodyParser());
+var app = express();
+app.use(bodyParser());
 
 app.get('/db/data/index/node/', function(req, res){
   var options = {
@@ -22,6 +22,23 @@ app.get('/db/data/index/node/', function(req, res){
     }
   });
 });
+
+app.get('/db/data/labels/', function(req, res){
+	  var options = {
+	    uri: uri_base + '/db/data/labels/',
+	    json: true
+	  };
+	  request.get(options, function(error, response, body){
+	    if (!error && response.statusCode == 200) {
+	      console.log('Get Request Recieved');
+	      res.header('Content-Type', 'application/json');
+	      res.header("Access-Control-Allow-Origin", "*")
+	      res.json(body);
+	    } else {
+	      console.log('error: '+ response.statusCode);
+	    }
+	  });
+	});
 
 app.post('/db/data/cypher', function(req, res){
   console.log('Cypher Request Recieved');
