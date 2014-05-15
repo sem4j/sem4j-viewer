@@ -57,23 +57,6 @@ app.post('/db/data/schema/index', function(req, res){
 	  });
 	});
 
-app.get('/db/data/schema/index/ALL/', function(req, res){
-	  var options = {
-	    uri: uri_base + '/db/data/schema/index/ALL/',
-	    json: true
-	  };
-	  request.get(options, function(error, response, body){
-	    if (!error && response.statusCode == 200) {
-	      console.log('Get Request Recieved');
-	      res.header('Content-Type', 'application/json');
-	      res.header("Access-Control-Allow-Origin", "*")
-	      res.json(body);
-	    } else {
-	      console.log('error: '+ response.statusCode);
-	    }
-	  });
-	});
-
 app.post('/db/data/cypher', function(req, res){
   console.log('Cypher Request Recieved');
   if (req.body.query.search(/create|merge|set|delete|remove|foreach/i) != -1) {
